@@ -1,546 +1,147 @@
-# CineVerse Seats
+# CineVerse Cinemas
 
-Create a modern, premium movie seat booking website for a single movie theater called CineVerse Cinemas.
+A full-stack movie discovery and seat-booking demo for a single cinema. Browse films and showtimes, choose seats, complete a simulated checkout, and keep digital tickets in your account.
 
-The website should focus primarily on the movie selection → showtime selection → interactive seat selection → booking confirmation experience. It should look like a real production cinema website, not a generic template.
+> **Demo payments only:** checkout does not charge a payment method. Supabase is used for authentication and persisted cinema/booking data.
 
-1. Home Page
+## Quick navigation
 
-Create a visually appealing cinema homepage with a dark, cinematic theme.
+- [Get started](#get-started)
+- [Configure Supabase](#configure-supabase)
+- [Try the app](#try-the-app)
+- [Available commands](#available-commands)
+- [Project map](#project-map)
+- [Troubleshooting](#troubleshooting)
 
-Include:
+## Get started
 
-CineVerse Cinemas logo/name
+### Requirements
 
-Navigation: Home, Movies, Shows, My Bookings, About Us
+- Node.js and npm, or [Bun](https://bun.sh/).
+- A Supabase project for authentication and application data.
 
-Hero section featuring the currently popular movie
+### Install and run
 
-"Book Tickets" CTA
-
-"Now Showing" section
-
-"Coming Soon" section
-
-Today's available showtimes
-
-Theater facilities
-
-Location and contact information
-
-Movie cards should contain:
-
-Movie poster
-
-Movie title
-
-Genre
-
-Duration
-
-Language
-
-Rating
-
-"Book Now" button
-
-Use realistic sample movies such as:
-
-Avengers: Endgame
-
-Interstellar
-
-Inception
-
-Spider-Man: No Way Home
-
-Dune: Part Two
-
-2. Movie Details Page
-
-When the user selects a movie, display:
-
-Large movie poster
-
-Movie title
-
-Rating
-
-Genre
-
-Duration
-
-Language
-
-Age rating
-
-Description
-
-Cast
-
-Trailer button
-
-Below this, provide:
-
-Select Date
-
-Show the next 7 days as selectable date cards.
-
-Example:
-
-MON 15
-TUE 16
-WED 17
-THU 18
-FRI 19
-SAT 20
-SUN 21
-
-Select Showtime
-
-Display available showtimes:
-
-10:00 AM
-1:30 PM
-4:30 PM
-7:30 PM
-10:30 PM
-
-Each showtime should display:
-
-Time
-
-Screen number
-
-Available seats
-
-Clicking a showtime should take the user to the seat-selection page.
-
-3. Interactive Seat Selection Page
-
-This is the most important part of the website.
-
-Create a realistic cinema seating layout.
-
-At the top display:
-
-      SCREEN
- ───────────────
-
-
-Create rows:
-
-A A A A A A A A
-B B B B B B B B
-C C C C C C C C
-D D D D D D D D
-E E E E E E E E
-F F F F F F F F
-G G G G G G G G
-H H H H H H H H
-
-Use seat numbers such as:
-
-A1 A2 A3 A4 A5 A6 A7 A8
-
-Include aisles between seat sections where appropriate.
-
-Different seat types:
-
-Regular
-
-Premium
-
-VIP
-
-Each seat must have a different state:
-
-Available
-
-User can select it
-
-Selected
-
-Highlight it clearly
-
-Booked
-
-Disabled and unclickable
-
-Unavailable
-
-Disabled
-
-Add a seat legend:
-
-🟢 Available
-🔵 Selected
-⚫ Booked
-🟡 Premium
-
-Users should be able to:
-
-Click an available seat to select it
-
-Click again to deselect it
-
-Select multiple seats
-
-See selected seats update instantly
-
-4. Booking Summary
-
-Keep a booking summary panel visible on desktop and accessible on mobile.
-
-Display:
-
-Movie:
-Interstellar
-
-Date:
-Friday, 19 September
-
-Show:
-7:30 PM
-
-Screen:
-Screen 2
-
-Selected Seats:
-D5, D6
-
-Ticket Price:
-₹400
-
-Convenience Fee:
-₹40
-
-Taxes:
-₹72
-
-Total:
-₹512
-
-Include a large:
-
-Proceed to Payment
-
-button.
-
-Do not allow the user to continue without selecting at least one seat.
-
-5. Payment Page
-
-Create a clean checkout page.
-
-Payment methods:
-
-UPI
-
-Credit/Debit Card
-
-Net Banking
-
-Wallet
-
-Show the booking summary on the right.
-
-This is a demo application, so payment should be simulated rather than processing real money.
-
-Add:
-Pay ₹512
-
-After clicking, show a short loading animation and then successful payment.
-
-6. Booking Confirmation
-
-Create a beautiful confirmation page.
-
-Display:
-
-✓ Booking Confirmed
-
-Booking ID:
-CV-839421
-
-Movie:
-Interstellar
-
-Date:
-19 September 2026
-
-Time:
-7:30 PM
-
-Screen:
-Screen 2
-
-Seats:
-D5, D6
-
-Amount:
-₹512
-
-Generate a QR-code style ticket containing the booking information.
-
-Add buttons:
-
-Download Ticket
-
-View My Bookings
-
-Back to Home
-
-The ticket should visually resemble a real cinema ticket.
-
-7. My Bookings
-
-Create a user booking page with two sections:
-
-Upcoming
-
-Show upcoming tickets with:
-
-Movie poster
-
-Movie name
-
-Date
-
-Time
-
-Screen
-
-Seats
-
-Booking ID
-
-QR code
-
-View Ticket button
-
-Cancel Booking button
-
-Booking History
-
-Display previous bookings.
-
-8. Theater Information
-
-Create an About Theater section containing:
-
-CineVerse Cinemas
-
-Include:
-
-Theater description
-
-Address
-
-Contact number
-
-Opening hours
-
-Parking information
-
-Food & beverages
-
-Dolby Atmos
-
-Recliner seats
-
-Accessibility facilities
-
-9. Admin Dashboard
-
-Create a simple admin dashboard for the theater.
-
-Include:
-
-Dashboard statistics:
-
-Total bookings
-
-Today's revenue
-
-Tickets sold
-
-Current occupancy
-
-Upcoming shows
-
-Admin sections:
-
-Movies
-
-Shows
-
-Screens
-
-Seats
-
-Bookings
-
-Users
-
-Revenue
-
-Admin should be able to:
-
-Add movies
-
-Edit movies
-
-Remove movies
-
-Create shows
-
-Change showtimes
-
-Set ticket prices
-
-View bookings
-
-View seat occupancy
-
-10. Design
-
-Use a premium dark cinema aesthetic.
-
-Design characteristics:
-
-Dark background
-
-Cinematic gradients
-
-Large movie imagery
-
-Glassmorphism where appropriate
-
-Rounded cards
-
-Subtle shadows
-
-Smooth hover effects
-
-Smooth page transitions
-
-Modern typography
-
-Clear visual hierarchy
-
-Use colors that feel cinematic, but don't overuse gradients.
-
-The interface should feel similar in quality to a professional ticket-booking platform.
-
-11. Responsive Design
-
-The website must be fully responsive.
-
-Desktop
-
-Use a two-column layout for seat selection:
-
-Left: Cinema seating
-
-Right: Booking summary
-
-Mobile
-
-Stack the layout:
-
-Movie/show information
-
-Seat map
-
-Booking summary
-
-Proceed button
-
-Make the seat map horizontally scrollable if necessary.
-
-12. Important Functional Behavior
-
-Implement these interactions:
-
-User selects a movie.
-
-User selects a date.
-
-User selects a showtime.
-
-Seat map loads for that specific show.
-
-Booked seats appear unavailable.
-
-User selects seats.
-
-Price updates automatically.
-
-User proceeds to payment.
-
-Payment is simulated.
-
-Seats become booked.
-
-Booking confirmation is generated.
-
-Ticket appears under My Bookings.
-
-Most importantly:
-
-Seat availability must be specific to each show.
-
-For example:
-
-D5 booked for the 7:30 PM show
-→ D5 must still be available for the 10:30 PM show.
-
-Prevent double booking and ensure the UI always reflects the current booking state.
-
-13. Technical Quality
-
-Use:
-
-Reusable components
-
-Clean folder structure
-
-Proper state management
-
-Form validation
-
-Loading states
-
-Empty states
-
-Error states
-
-Responsive components
-
-Accessible buttons and controls
-
-Do not create a static mockup. Make the booking flow interactive and functional using realistic mock data if a backend is not available.
-
-The final application should feel like a real single-theater movie booking platform, with the interactive seat-selection experience being the central feature.  every user should have to login before doing payment and accessing mybooking profile
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2b0b2c00-5212-4734-b80c-72aae5e42bbf).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Clone the repository and install dependencies:
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+git clone https://github.com/Harit2552/CineVerse.git
+cd CineVerse
+bun install
 ```
+
+If you use npm instead, run `npm install`.
+
+Create a local `.env` file in the repository root and [configure the Supabase variables](#configure-supabase). Then start the development server:
+
+```sh
+bun run dev
+```
+
+With npm, use `npm run dev`. Open the local URL printed by Vite in your terminal.
+
+## Configure Supabase
+
+The app expects a Supabase project URL and a publishable/anonymous key. The browser client can read `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`; server-side operations use `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`.
+
+Add these entries to your root `.env`, replacing the placeholders with values from your Supabase project:
+
+```dotenv
+VITE_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+SUPABASE_SERVICE_ROLE_KEY=YOUR_SERVICE_ROLE_KEY
+```
+
+`SUPABASE_SERVICE_ROLE_KEY` is used only by trusted server-side admin operations. Keep it secret: never prefix it with `VITE_`, put it in browser code, or commit `.env`.
+
+### Apply the database migrations
+
+The Supabase schema and demo seed data are in [`supabase/migrations`](./supabase/migrations/). Apply the migration files in filename order to your Supabase project using the Supabase CLI or the Supabase SQL Editor. They create the cinema tables, access policies, role helper, sample movies/screens, and showtimes.
+
+The project’s Supabase configuration is in [`supabase/config.toml`](./supabase/config.toml). If you use the CLI, link it to the Supabase project you intend to work with before applying migrations.
+
+## Try the app
+
+### Browse and book a movie
+
+1. From **Home**, browse the featured film, current movies, and today’s showtimes.
+2. Open **Movies** or **Shows** to find a film or choose a date.
+3. Select a showtime to open its seat map.
+4. Choose available seats (up to 10 per booking); the summary updates with seat pricing, fees, and taxes.
+5. Continue to checkout. Sign in or create an account if prompted.
+6. Choose a demo payment method and complete the simulated checkout.
+7. View the confirmation ticket, download its ticket image, or find it later under **My Bookings**.
+
+Seat availability is stored against each show. The database also enforces uniqueness for a seat within a show, so a seat booked for one screening does not automatically become booked for another screening.
+
+### Sign in
+
+Use **Sign in** in the header to create an account or log in with email and password. If Supabase email confirmation is enabled, follow the confirmation email before signing in.
+
+### Use the admin dashboard
+
+Open **Admin** from the signed-in account menu. The dashboard provides booking/revenue/occupancy summaries and management for movies and showtimes.
+
+If no admin role exists yet, the dashboard offers a first-admin setup action to the first signed-in user. Once an admin exists, other users need an administrator role to manage the cinema.
+
+## Available commands
+
+| Command                                   | What it does                         |
+| ----------------------------------------- | ------------------------------------ |
+| `bun run dev` / `npm run dev`             | Start the local development server   |
+| `bun run build` / `npm run build`         | Create a production build            |
+| `bun run build:dev` / `npm run build:dev` | Build using Vite’s development mode  |
+| `bun run preview` / `npm run preview`     | Preview the production build locally |
+| `bun run lint` / `npm run lint`           | Run ESLint                           |
+| `bun run format` / `npm run format`       | Format files with Prettier           |
+
+## Project map
+
+| Path                                                         | Purpose                                                                                |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| [`src/routes/`](./src/routes/)                               | File-based pages: home, movies, showtimes, authentication, booking, account, and admin |
+| [`src/components/`](./src/components/)                       | Shared site, booking, and UI components                                                |
+| [`src/integrations/supabase/`](./src/integrations/supabase/) | Supabase clients, auth middleware, and database types                                  |
+| [`src/lib/`](./src/lib/)                                     | Server functions, cinema helpers, ticket generation, and error handling                |
+| [`supabase/migrations/`](./supabase/migrations/)             | Database schema, access policies, and sample data                                      |
+| [`public/images/`](./public/images/)                         | Theater and movie-poster assets                                                        |
+
+TanStack Start routes are generated from files under `src/routes/`. `src/routeTree.gen.ts` is generated; edit route files rather than changing the generated route tree by hand.
+
+## Troubleshooting
+
+<details>
+<summary><strong>The app reports missing Supabase environment variables</strong></summary>
+
+Check that the root `.env` contains the required URL and publishable-key variables listed above, then restart the dev server. Do not paste secret keys into browser-exposed `VITE_` variables.
+
+</details>
+
+<details>
+<summary><strong>Movies or showtimes are empty</strong></summary>
+
+Confirm the migrations were applied to the same Supabase project configured in `.env`. The migrations include seed records for the movie catalog and showtimes.
+
+</details>
+
+<details>
+<summary><strong>Authentication or email confirmation is not working</strong></summary>
+
+Check the Supabase project’s Auth settings, including enabled email/password sign-in and the allowed redirect URLs for your local development address.
+
+</details>
+
+<details>
+<summary><strong>How do I check the production build?</strong></summary>
+
+Run `bun run build` or `npm run build`. Use `bun run preview` or `npm run preview` to serve the generated build locally.
+
+</details>
+
+## Security reminders
+
+- `.env` and `package-lock.json` are ignored by Git; keep credentials out of commits.
+- The service-role key bypasses row-level security and belongs only in server-side configuration.
+- Payment is simulated; do not enter real payment information.
