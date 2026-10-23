@@ -115,7 +115,7 @@ export type MovieInput = {
 
 export const saveMovie = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: MovieInput) => {
+  .validator((data: MovieInput) => {
     if (!data.title.trim()) throw new Error("Title is required");
     return data;
   })
@@ -138,7 +138,7 @@ export const saveMovie = createServerFn({ method: "POST" })
 
 export const deleteMovie = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { id: string }) => data)
+  .validator((data: { id: string }) => data)
   .handler(async ({ data, context }) => {
     await assertAdmin(context);
     const { error } = await context.supabase.from("movies").delete().eq("id", data.id);
@@ -148,7 +148,7 @@ export const deleteMovie = createServerFn({ method: "POST" })
 
 export const saveShow = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator(
+  .validator(
     (data: {
       id?: string;
       movie_id: string;
@@ -182,7 +182,7 @@ export const saveShow = createServerFn({ method: "POST" })
 
 export const deleteShow = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { id: string }) => data)
+  .validator((data: { id: string }) => data)
   .handler(async ({ data, context }) => {
     await assertAdmin(context);
     const { error } = await context.supabase.from("shows").delete().eq("id", data.id);

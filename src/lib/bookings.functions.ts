@@ -20,7 +20,7 @@ export const getMyProfile = createServerFn({ method: "GET" })
 
 export const saveMyProfile = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { full_name: string; email: string; phone: string }) => data)
+  .validator((data: { full_name: string; email: string; phone: string }) => data)
   .handler(async ({ data, context }) => {
     const { error } = await context.supabase
       .from("profiles")
@@ -31,7 +31,7 @@ export const saveMyProfile = createServerFn({ method: "POST" })
 
 export const createBooking = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { showId: string; seats: string[]; paymentMethod: string }) => {
+  .validator((data: { showId: string; seats: string[]; paymentMethod: string }) => {
     if (!data.showId) throw new Error("Missing show");
     if (!Array.isArray(data.seats) || data.seats.length === 0) {
       throw new Error("Select at least one seat");
@@ -129,7 +129,7 @@ export type BookingDetail = {
 
 export const getMyBooking = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { bookingId: string }) => data)
+  .validator((data: { bookingId: string }) => data)
   .handler(async ({ data, context }) => {
     const { data: booking, error } = await context.supabase
       .from("bookings")
@@ -154,7 +154,7 @@ export const listMyBookings = createServerFn({ method: "GET" })
 
 export const cancelBooking = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { bookingId: string }) => data)
+  .validator((data: { bookingId: string }) => data)
   .handler(async ({ data, context }) => {
     const { error } = await context.supabase
       .from("bookings")

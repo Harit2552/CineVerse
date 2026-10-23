@@ -41,7 +41,7 @@ export const listMovies = createServerFn({ method: "GET" }).handler(async () => 
 });
 
 export const getMovie = createServerFn({ method: "GET" })
-  .inputValidator((data: { movieId: string }) => data)
+  .validator((data: { movieId: string }) => data)
   .handler(async ({ data }) => {
     const { publicDb } = await import("./public-db.server");
     const { data: movie, error } = await publicDb()
@@ -54,7 +54,7 @@ export const getMovie = createServerFn({ method: "GET" })
   });
 
 export const listShowsForMovie = createServerFn({ method: "GET" })
-  .inputValidator((data: { movieId: string; date: string }) => data)
+  .validator((data: { movieId: string; date: string }) => data)
   .handler(async ({ data }) => {
     const { publicDb } = await import("./public-db.server");
     const db = publicDb();
@@ -86,7 +86,7 @@ export const listShowsForMovie = createServerFn({ method: "GET" })
   });
 
 export const listShowsForDate = createServerFn({ method: "GET" })
-  .inputValidator((data: { date: string }) => data)
+  .validator((data: { date: string }) => data)
   .handler(async ({ data }) => {
     const { publicDb } = await import("./public-db.server");
     const { data: shows, error } = await publicDb()
@@ -101,7 +101,7 @@ export const listShowsForDate = createServerFn({ method: "GET" })
   });
 
 export const getShowDetail = createServerFn({ method: "GET" })
-  .inputValidator((data: { showId: string }) => data)
+  .validator((data: { showId: string }) => data)
   .handler(async ({ data }) => {
     const { publicDb } = await import("./public-db.server");
     const db = publicDb();
